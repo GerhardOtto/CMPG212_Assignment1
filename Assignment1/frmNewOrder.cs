@@ -103,7 +103,6 @@ namespace Assignment1
             Vo.MdiParent = Main.ActiveForm;
             Vo.StartPosition = FormStartPosition.Manual;
             Vo.Location = new Point(394, 36);
-            Vo.Show();
 
             string sql = "SELECT Name, Price FROM Drinks";
             display(sql, dataGridView1);
@@ -132,6 +131,7 @@ namespace Assignment1
             int amount = Convert.ToInt32(comboBox1.SelectedItem.ToString());
             string display ="Drinks: " + amount + " " + name + "/s for R" + Math.Round(amount * costPerItem, 2);
 
+            Vo.Show();
             Vo.DisplayOrder(display);
         }
 
@@ -151,6 +151,7 @@ namespace Assignment1
             int amount = Convert.ToInt32(comboBox2.SelectedItem.ToString());
             string display ="Sandwich: " + amount + " " + name + "/s for R" + Math.Round(amount * costPerItem, 2);
 
+            Vo.Show();
             Vo.DisplayOrder(display);
         }
 
@@ -170,6 +171,7 @@ namespace Assignment1
             int amount = Convert.ToInt32(comboBox3.SelectedItem.ToString());
             string display = "Pastry: " + amount + " " + name + "/s for R" + Math.Round(amount * costPerItem, 2);
 
+            Vo.Show();
             Vo.DisplayOrder(display);
         }
 
@@ -186,23 +188,28 @@ namespace Assignment1
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+            DataGridViewRow selectedRow = dataGridView2.SelectedRows[0];
 
             string name = selectedRow.Cells[0].Value.ToString();
 
             string sql = $"SELECT Stock FROM Food WHERE Name = '{name}' ";
-            comboReader(sql, comboBox3);
+            comboReader(sql, comboBox2);
             
         }
 
         private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+            DataGridViewRow selectedRow = dataGridView3.SelectedRows[0];
 
             string name = selectedRow.Cells[0].Value.ToString();
 
             string sql = $"SELECT Stock FROM Food WHERE Name = '{name}'";
-            comboReader(sql, comboBox2);
+            comboReader(sql, comboBox3);
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -40,7 +41,7 @@ namespace Assignment1
 
                 if (reader.Read())
                 {
-                    oldStock = Convert.ToInt32(reader.GetValue(2));
+                    oldStock = Convert.ToInt32(reader.GetValue(0));
                 }
                 conn.Close();
             }
@@ -52,7 +53,7 @@ namespace Assignment1
             return oldStock;
         }
 
-        public void insert(string tableName, int stock, string name)
+        public void update(string tableName, int stock, string name)
         {
             try
             {
@@ -71,6 +72,7 @@ namespace Assignment1
             catch (SqlException error)
             {
                 MessageBox.Show(error.Message);
+                conn.Close();
             }
         }
 
@@ -81,6 +83,7 @@ namespace Assignment1
 
         private void btnProceed_Click(object sender, EventArgs e)
         {
+
             foreach (var item in listBox1.Items)
             {
                 string listItem = item.ToString();
@@ -98,19 +101,22 @@ namespace Assignment1
                 int amount = Int32.Parse(subParts[0]);
 
                 // Get the string part
-                string name = subParts[1];
+                string name = subParts[1].Split('/')[0]; // split on "/" and take the first part
+
 
                 if (category == "Drinks")
                 {
-                    insert(category,amount, name);
+                    update(category,amount, name);
                 }
                 else
                 {
-                    insert("Food",amount, name);
+                    update("Food",amount, name);
                 }
             }
 
             MessageBox.Show("Order placed!");
+            listBox1.Items.Clear();
+            this.Hide();
         }
 
         private void frmViewOrder_Load(object sender, EventArgs e)
