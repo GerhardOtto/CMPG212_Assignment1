@@ -88,20 +88,18 @@ namespace Assignment1
             {
                 string listItem = item.ToString();
 
-                // Split the string into parts
                 string[] parts = listItem.Split(':');
 
                 // Get the category
                 string category = parts[0].Trim();
 
-                // Now split the second part by space
                 string[] subParts = parts[1].Trim().Split(' ');
 
                 // Parse the first part to an integer
                 int amount = Int32.Parse(subParts[0]);
 
-                // Get the string part
-                string name = subParts[1].Split('/')[0]; // split on "/" and take the first part
+                // Get the string name
+                string name = subParts[1].Split('/')[0];
 
 
                 if (category == "Drinks")

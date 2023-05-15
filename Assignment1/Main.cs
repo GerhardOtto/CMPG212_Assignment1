@@ -20,31 +20,6 @@ namespace Assignment1
         SqlCommand cmd;
         DataSet ds;
 
-        private void delete(string DeleteMe, ListBox lbxName)
-        {
-
-            try
-            {
-                DeleteMe = lbxName.SelectedItem.ToString();
-
-                conn.Open();
-
-                string sqlString = "DELETE FROM Movies WHERE MovieName = @MovieName";
-                cmd = new SqlCommand(sqlString, conn);
-                cmd.Parameters.AddWithValue("@MovieName", DeleteMe);
-                cmd.ExecuteNonQuery();
-
-                conn.Close();
-                MessageBox.Show(DeleteMe.ToString() + " has been deleted");
-            }
-            catch (SqlException error)
-            {
-                MessageBox.Show(error.Message);
-                conn.Close();
-            }
-
-        }
-
         public Main()
         {
             InitializeComponent();
