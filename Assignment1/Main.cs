@@ -15,10 +15,6 @@ namespace Assignment1
     public partial class Main : Form
     {
         SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gerhard\projects\Assignment1_Group\Assignment1V1\Assignment1\Database1.mdf;Integrated Security=True");
-        SqlDataAdapter adapter;
-        SqlDataReader reader;
-        SqlCommand cmd;
-        DataSet ds;
 
         public Main()
         {

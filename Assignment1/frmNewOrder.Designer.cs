@@ -123,7 +123,7 @@ namespace Assignment1
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(286, 119);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(34, 21);
+            this.comboBox1.Size = new System.Drawing.Size(50, 21);
             this.comboBox1.TabIndex = 7;
             // 
             // comboBox2
@@ -131,7 +131,7 @@ namespace Assignment1
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(286, 305);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(34, 21);
+            this.comboBox2.Size = new System.Drawing.Size(50, 21);
             this.comboBox2.TabIndex = 8;
             // 
             // comboBox3
@@ -139,16 +139,16 @@ namespace Assignment1
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(286, 524);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(34, 21);
+            this.comboBox3.Size = new System.Drawing.Size(50, 21);
             this.comboBox3.TabIndex = 9;
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(286, 160);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(38, 24);
+            this.button1.Size = new System.Drawing.Size(50, 24);
             this.button1.TabIndex = 10;
-            this.button1.Text = "button1";
+            this.button1.Text = "Confrim";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -156,9 +156,9 @@ namespace Assignment1
             // 
             this.button2.Location = new System.Drawing.Point(286, 359);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(38, 24);
+            this.button2.Size = new System.Drawing.Size(50, 24);
             this.button2.TabIndex = 11;
-            this.button2.Text = "button2";
+            this.button2.Text = "Confirm";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -166,9 +166,9 @@ namespace Assignment1
             // 
             this.button3.Location = new System.Drawing.Point(286, 578);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(38, 24);
+            this.button3.Size = new System.Drawing.Size(50, 24);
             this.button3.TabIndex = 12;
-            this.button3.Text = "button3";
+            this.button3.Text = "Confirm";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -176,7 +176,7 @@ namespace Assignment1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(331, 652);
+            this.ClientSize = new System.Drawing.Size(348, 652);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);

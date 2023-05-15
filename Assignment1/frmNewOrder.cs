@@ -22,7 +22,7 @@ namespace Assignment1
         DataSet ds;
 
 
-
+        //Reads data from DB into a comboBox using data reader
         private void comboReader(string sql, ComboBox cbxName)
         {
             try
@@ -55,6 +55,7 @@ namespace Assignment1
         }
 
 
+        //Displays the data in datagridview
         private void display(string sqlString, DataGridView dataGridView)
         {
             try

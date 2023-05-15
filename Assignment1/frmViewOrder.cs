@@ -17,16 +17,15 @@ namespace Assignment1
     {
         
         private SqlConnection conn;
-        SqlDataAdapter adapter;
-        SqlDataReader reader;
         SqlCommand cmd;
-        DataSet ds;
+
         public frmViewOrder(SqlConnection connection)
         {
             conn = connection;
             InitializeComponent();
         }
 
+        //Gets the current amount of stock
         public int getStock(string tableName, string name)
         {
             int oldStock = 0;
@@ -53,6 +52,7 @@ namespace Assignment1
             return oldStock;
         }
 
+        //Updates the DB with the correct amount of stock after order
         public void update(string tableName, int stock, string name)
         {
             try
@@ -115,6 +115,7 @@ namespace Assignment1
             MessageBox.Show("Order placed!");
             listBox1.Items.Clear();
             this.Hide();
+
         }
 
         private void frmViewOrder_Load(object sender, EventArgs e)
