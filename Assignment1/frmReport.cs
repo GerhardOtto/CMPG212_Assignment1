@@ -27,10 +27,8 @@ namespace Assignment1
         private void frmReport_Load(object sender, EventArgs e)
         {
             lbxReports.Items.Clear();
-            // data is retreived from the sales table and displayed in the listbox
-            // the total profit is calculated
             decimal Total = 0;
-            string sql = "SELECT Category,Name,Sales,Profit FROM Sales";
+            string sql = "SELECT ThisCantBeWhatItMustBe, Category, Name, Sales, Profit FROM Sales ORDER BY ThisCantBeWhatItMustBe";
 
             conn = new SqlConnection(connectionstring);
 
@@ -40,23 +38,44 @@ namespace Assignment1
                 command = new SqlCommand(sql, conn);
                 dataReader = command.ExecuteReader();
 
-                lbxReports.Items.Add("Category \t\t Name \t\t Sales \t Profit");
-                lbxReports.Items.Add("=====================================================================================");
-
+                string currentDate = "";
                 while (dataReader.Read())
                 {
-                    lbxReports.Items.Add(dataReader.GetValue(0) + "\t" + dataReader.GetValue(1) + "\t" + dataReader.GetValue(2).ToString() + "\t" + dataReader.GetValue(3).ToString());
-                    Total = Total + Convert.ToDecimal(dataReader.GetValue(3));
-                }
-                lbxReports.Items.Add("");
-                lbxReports.Items.Add("Total Profit: " + Total.ToString());
+                    string ThisCantBeWhatItMustBe = Convert.ToDateTime(dataReader.GetValue(0)).ToShortDateString();
 
+                    if (ThisCantBeWhatItMustBe != currentDate)
+                    {
+                        if (currentDate != "")
+                        {
+                            lbxReports.Items.Add("");
+                            lbxReports.Items.Add("Total Profit for " + currentDate + ": " + Total.ToString());
+                            Total = 0; // reset total for next date
+                        }
+                        currentDate = ThisCantBeWhatItMustBe;
+
+                        lbxReports.Items.Add("");
+                        lbxReports.Items.Add("Sale Date: " + currentDate);
+                        lbxReports.Items.Add("Category \t\t Name \t\t Sales \t Profit");
+                        lbxReports.Items.Add("=====================================================================================");
+                    }
+
+                    lbxReports.Items.Add(dataReader.GetValue(1) + "\t" + dataReader.GetValue(2) + "\t" + dataReader.GetValue(3).ToString() + "\t" + dataReader.GetValue(4).ToString());
+                    Total = Total + Convert.ToDecimal(dataReader.GetValue(4));
+                }
+
+                // Add the total for the last date
+                if (currentDate != "")
+                {
+                    lbxReports.Items.Add("");
+                    lbxReports.Items.Add("Total Profit for " + currentDate + ": R" + Total.ToString());
+                }
             }
             catch (SqlException error)
             {
                 MessageBox.Show(error.Message);
                 conn.Close();
             }
+
         }
     }
 }
