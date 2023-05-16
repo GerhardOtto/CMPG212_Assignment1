@@ -115,7 +115,7 @@ namespace Assignment1
 
                 try
                 {
-                    string sqlInsert = "INSERT INTO Sales (Name, Sales, Profit, Time, Category) VALUES (@name, @sales, @profit, @time, @category)";
+                    string sqlInsert = "INSERT INTO Sales (Name, Sales, Profit, ThisCantBeWhatItMustBe, Category) VALUES (@name, @sales, @profit, @thisCantBeWhatItMustBe, @category)";
 
                     using (SqlCommand cmd = new SqlCommand(sqlInsert, conn))
                     {
@@ -123,7 +123,7 @@ namespace Assignment1
                         cmd.Parameters.AddWithValue("@name", name);
                         cmd.Parameters.AddWithValue("@sales", amount);
                         cmd.Parameters.AddWithValue("profit", price);
-                        cmd.Parameters.AddWithValue("@time", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@thisCantBeWhatItMustBe", DateTime.Now.ToString("yyyy-MM-dd"));
                         cmd.Parameters.AddWithValue("@category", category);
                         cmd.ExecuteNonQuery();
                         conn.Close();
