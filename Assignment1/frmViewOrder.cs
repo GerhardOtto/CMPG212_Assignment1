@@ -113,6 +113,7 @@ namespace Assignment1
                     update("Food",amount, name);
                 }
 
+                //Inserts data into sales table
                 try
                 {
                     string sqlInsert = "INSERT INTO Sales (Name, Sales, Profit, ThisCantBeWhatItMustBe, Category) VALUES (@name, @sales, @profit, @thisCantBeWhatItMustBe, @category)";

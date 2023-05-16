@@ -36,6 +36,7 @@
             this.btnDelFood = new System.Windows.Forms.Button();
             this.btnAddFood = new System.Windows.Forms.Button();
             this.btnUpFood = new System.Windows.Forms.Button();
+            this.btnReports = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -47,6 +48,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(604, 216);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // dataGridView2
             // 
@@ -55,6 +57,7 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(604, 216);
             this.dataGridView2.TabIndex = 1;
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             // 
             // btnUpdate
             // 
@@ -64,6 +67,7 @@
             this.btnUpdate.TabIndex = 2;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
@@ -73,6 +77,7 @@
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Add New Item";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDelete
             // 
@@ -82,6 +87,7 @@
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Delete Drink Item";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnDelFood
             // 
@@ -91,6 +97,7 @@
             this.btnDelFood.TabIndex = 7;
             this.btnDelFood.Text = "Delete Food Item";
             this.btnDelFood.UseVisualStyleBackColor = true;
+            this.btnDelFood.Click += new System.EventHandler(this.btnDelFood_Click);
             // 
             // btnAddFood
             // 
@@ -100,6 +107,7 @@
             this.btnAddFood.TabIndex = 6;
             this.btnAddFood.Text = "Add New Item";
             this.btnAddFood.UseVisualStyleBackColor = true;
+            this.btnAddFood.Click += new System.EventHandler(this.btnAddFood_Click);
             // 
             // btnUpFood
             // 
@@ -109,12 +117,24 @@
             this.btnUpFood.TabIndex = 5;
             this.btnUpFood.Text = "Update";
             this.btnUpFood.UseVisualStyleBackColor = true;
+            this.btnUpFood.Click += new System.EventHandler(this.btnUpFood_Click);
+            // 
+            // btnReports
+            // 
+            this.btnReports.Location = new System.Drawing.Point(610, 190);
+            this.btnReports.Name = "btnReports";
+            this.btnReports.Size = new System.Drawing.Size(133, 90);
+            this.btnReports.TabIndex = 8;
+            this.btnReports.Text = "Generate Reports";
+            this.btnReports.UseVisualStyleBackColor = true;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
             // frmStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(759, 479);
+            this.Controls.Add(this.btnReports);
             this.Controls.Add(this.btnDelFood);
             this.Controls.Add(this.btnAddFood);
             this.Controls.Add(this.btnUpFood);
@@ -125,6 +145,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "frmStaff";
             this.Text = "frmStaff";
+            this.Load += new System.EventHandler(this.frmStaff_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
@@ -141,5 +162,6 @@
         private System.Windows.Forms.Button btnDelFood;
         private System.Windows.Forms.Button btnAddFood;
         private System.Windows.Forms.Button btnUpFood;
+        private System.Windows.Forms.Button btnReports;
     }
 }
