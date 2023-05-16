@@ -23,7 +23,7 @@ namespace Assignment1
         DataSet ds;
 
         // connection to the database
-        public string connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\OneDrive\OneDrive - North-West University\2023\CMPG212\Assignments\Assignment1\Assignment1\BeetleCaf.mdf;Integrated Security=True";
+        public string connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gerhard\projects\Assignment1_Group\Assignment1V1\Assignment1\Database1.mdf;Integrated Security=True";
         //public string connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\stefa\OneDrive - North-West University\2023\CMPG212\Assignments\Assignment1\Assignment1\BeetleCaf.mdf;Integrated Security=True";
 
 
@@ -105,10 +105,11 @@ namespace Assignment1
             try
             {
                 conn.Open();
-                string sql = "UPDATE Drinks SET Special = @Special, Price = @Price WHERE Id = '" + id + "'";
+                string sql = "UPDATE Drinks SET Sale = @Special, Price = @Price, Stock = @Stock WHERE Id = '" + id + "'";
                 command = new SqlCommand(sql, conn);
                 command.Parameters.AddWithValue("@Price", Convert.ToDecimal(special.fPrice));
                 command.Parameters.AddWithValue("@Special", special.fSpecial);
+                command.Parameters.AddWithValue("@Stock", Convert.ToInt32(special.fStock));
                 command.ExecuteNonQuery();
                 conn.Close();
             }
@@ -225,10 +226,11 @@ namespace Assignment1
             try
             {
                 conn.Open();
-                string sql = "UPDATE Food SET Special = @Special, Price = @Price WHERE Id = '" + id + "'";
+                string sql = "UPDATE Food SET Sale = @Special, Price = @Price, Stock = @Stock WHERE Id = '" + id + "'";
                 command = new SqlCommand(sql, conn);
                 command.Parameters.AddWithValue("@Price", Convert.ToDecimal(special.fPrice));
                 command.Parameters.AddWithValue("@Special", special.fSpecial);
+                command.Parameters.AddWithValue("@Stock", Convert.ToInt32(special.fStock));
                 command.ExecuteNonQuery();
                 conn.Close();
             }

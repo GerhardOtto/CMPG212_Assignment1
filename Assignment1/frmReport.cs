@@ -17,7 +17,7 @@ namespace Assignment1
         SqlCommand command;
         SqlDataReader dataReader;
 
-        private string connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\OneDrive\OneDrive - North-West University\2023\CMPG212\Assignments\Assignment1\Assignment1\BeetleCaf.mdf;Integrated Security=True";
+        public string connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gerhard\projects\Assignment1_Group\Assignment1V1\Assignment1\Database1.mdf;Integrated Security=True";
 
         public frmReport()
         {
@@ -26,6 +26,7 @@ namespace Assignment1
 
         private void frmReport_Load(object sender, EventArgs e)
         {
+            lbxReports.Items.Clear();
             // data is retreived from the sales table and displayed in the listbox
             // the total profit is calculated
             decimal Total = 0;

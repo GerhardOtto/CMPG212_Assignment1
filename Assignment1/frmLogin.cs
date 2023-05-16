@@ -21,7 +21,7 @@ namespace Assignment1
 
 
         // public connection
-        public string connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\OneDrive\OneDrive - North-West University\2023\CMPG212\Assignments\Assignment1\Assignment1\BeetleCaf.mdf;Integrated Security=True";
+        public string connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gerhard\projects\Assignment1_Group\Assignment1V1\Assignment1\Database1.mdf;Integrated Security=True";
 
         public frmLogin()
         {
@@ -35,6 +35,7 @@ namespace Assignment1
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
+            bool displayFrm = false;
             // checks to see if the username and password entered match the username and password int the database
             string Un, Pw;
 
@@ -58,16 +59,18 @@ namespace Assignment1
                     if (dataReader.GetValue(1).ToString() == "")
                     {
                         MessageBox.Show("invalid username or password");
+                        displayFrm = false;
                     }
                     else
                     {
-                        this.Close();
-                        frmStaff S = new frmStaff();
-                        S.MdiParent = Main.ActiveForm;
-                        S.Show();
+                        displayFrm = true;
                     }
                 }
 
+                this.Close();
+                frmStaff S = new frmStaff();
+                S.MdiParent = Main.ActiveForm;
+                S.Show();
 
                 conn.Close();
             }

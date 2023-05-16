@@ -19,6 +19,7 @@ namespace Assignment1
 
         public object fPrice { get; set; }
         public object fSpecial { get; set; }
+        public object fStock { get; set; }
 
         private void frmSpecial_Load(object sender, EventArgs e)
         {
@@ -28,6 +29,13 @@ namespace Assignment1
         private void btnAdd_Click(object sender, EventArgs e)
         {
             // checks if the checkboxes are ticked and save data into public variables
+            
+            if (textBox2.Text != null)
+            {
+                fStock = textBox2.Text;
+            }
+
+
             if (rdoYes.Checked)
             {
 
