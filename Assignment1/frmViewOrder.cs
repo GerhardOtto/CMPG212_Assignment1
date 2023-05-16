@@ -87,7 +87,6 @@ namespace Assignment1
             foreach (var item in listBox1.Items)
             {
                 string listItem = item.ToString();
-
                 string[] parts = listItem.Split(':');
 
                 // Get the category
@@ -99,7 +98,10 @@ namespace Assignment1
                 int amount = Int32.Parse(subParts[0]);
 
                 // Get the string name
-                string name = subParts[1].Split('/')[0];
+                string name = subParts[1].Split('/')[0].Replace("_", " ");
+
+                //Get price
+                decimal price = decimal.Parse(subParts[3].Trim().Substring(1));
 
 
                 if (category == "Drinks")
@@ -110,6 +112,29 @@ namespace Assignment1
                 {
                     update("Food",amount, name);
                 }
+
+                try
+                {
+                    string sqlInsert = "INSERT INTO Sales (Name, Sales, Profit, Time, Category) VALUES (@name, @sales, @profit, @time, @category)";
+
+                    using (SqlCommand cmd = new SqlCommand(sqlInsert, conn))
+                    {
+                        conn.Open();
+                        cmd.Parameters.AddWithValue("@name", name);
+                        cmd.Parameters.AddWithValue("@sales", amount);
+                        cmd.Parameters.AddWithValue("profit", price);
+                        cmd.Parameters.AddWithValue("@time", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@category", category);
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+                    }
+                }
+                catch (SqlException error)
+                {
+                    MessageBox.Show(error.Message);
+                }
+
+
             }
 
             MessageBox.Show("Order placed!");

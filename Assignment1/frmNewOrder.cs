@@ -105,13 +105,13 @@ namespace Assignment1
             Vo.StartPosition = FormStartPosition.Manual;
             Vo.Location = new Point(394, 36);
 
-            string sql = "SELECT Name, Price FROM Drinks";
+            string sql = "SELECT Name, Price, Sale FROM Drinks";
             display(sql, dataGridView1);
 
-            sql = "SELECT Name, Price FROM Food WHERE Type = 'Pastry'";
+            sql = "SELECT Name, Price, Sale FROM Food WHERE Type = 'Pastry'";
             display(sql, dataGridView3);
 
-            sql = "SELECT Name, Price FROM Food WHERE Type = 'Sandwich'";
+            sql = "SELECT Name, Price, Sale FROM Food WHERE Type = 'Sandwich'";
             display(sql, dataGridView2);
 
         }
